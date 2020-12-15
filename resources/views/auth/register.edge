@@ -1,0 +1,64 @@
+@layout('layouts/main')
+
+@section('content')
+<div class="container">
+  <h1>Crear cuenta</h1>
+  <form class="form" action="" method="post">
+    {{ csrfField() }}
+
+    <div class="form-group">
+      <label for="">Nombre</label>
+      <input class="form-control" type="text" name="nombre" value="{{ flashMessages.get('nombre') || '' }}">
+      @if(flashMessages.has('errors.nombre'))
+      <small class="form-text text-danger">
+        {{flashMessages.get('errors.nombre')}}
+      </small>
+      @endif
+    </div>
+
+    <div class="form-group">
+      <label for="">Apellido</label>
+      <input class="form-control" type="text" name="apellido" value="{{ flashMessages.get('apellido') || '' }}">
+      @if(flashMessages.has('errors.apellido'))
+      <small class="form-text text-danger">
+        {{flashMessages.get('errors.apellido')}}
+      </small>
+      @endif
+    </div>
+
+    <div class="form-group">
+      <label for="">Direccion de correo</label>
+      <input class="form-control" type="text" name="email" value="{{ flashMessages.get('email') || '' }}">
+      @if(flashMessages.has('errors.email'))
+      <small class="form-text text-danger">
+        {{flashMessages.get('errors.email')}}
+      </small>
+      @endif
+    </div>
+
+    <div class="form-group">
+      <label for="">Contraseña</label>
+      <input class="form-control" type="password" name="password" value="{{ flashMessages.get('password') || '' }}">
+      @if(flashMessages.has('errors.password'))
+      <small class="form-text text-danger">
+        {{flashMessages.get('errors.password')}}
+      </small>
+      @endif
+    </div>
+
+    <div class="form-group">
+      <label for="">Reintroducir contraseña</label>
+      <input class="form-control" type="password" name="password_confirmation" value="{{ flashMessages.get('password_confirmation') || '' }}">
+      @if(flashMessages.has('errors.password_confirmation'))
+      <small class="form-text text-danger">
+        {{flashMessages.get('errors.password_confirmation')}}
+      </small>
+      @endif
+    </div>
+
+    <button class="btn btn-primary" type="submit">OK</button>
+  </form>
+
+</div>
+
+@endsection
