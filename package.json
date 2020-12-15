@@ -7,6 +7,10 @@
     "start": "node server.js",
     "dev": "node ace serve --watch"
   },
+  "engines": {
+    "node": "15.x",
+    "npm": "7.x"
+  },
   "devDependencies": {
     "@adonisjs/assembler": "^3.0.6",
     "adonis-preset-ts": "^1.1.0",
