@@ -31,3 +31,5 @@ Route.get('profile', 'AuthController.profile').as('auth_profile').middleware('au
 
 Route.on('/').render('welcome').as('homepage')
 Route.on('/dashboard').render('dashboard').as('dashboard').middleware('auth')
+
+Route.resource('/thing', 'ThingsController')

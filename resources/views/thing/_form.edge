@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="col md-6">
+
+    <div class="form-group">
+      <label>Titulo</label>
+      <input type="text" class="form-control" name="cadena"
+        value="{{ flashMessages.has('errors') ? flashMessages.get('cadena') : model? model.cadena || '' : '' }}">
+      @if(flashMessages.has('errors.cadena'))
+      <small class="form-text text-danger">
+        {{ flashMessages.get('errors.cadena') }}
+      </small>
+      @endif
+    </div>
+
+    <div class="form-group">
+      <label>Texto</label>
+      <input type="text" class="form-control" name="texto"
+        value="{{ flashMessages.has('errors') ? flashMessages.get('texto') : model? model.texto || '' : '' }}">
+      @if(flashMessages.has('errors.texto'))
+      <small class="form-text text-danger">
+        {{ flashMessages.get('errors.texto') }}
+      </small>
+      @endif
+    </div>
+
+    <div class="form-group">
+      <label>Numero entero</label>
+      <input type="text" class="form-control" name="entero"
+        value="{{ flashMessages.has('errors') ? flashMessages.get('entero') : model? model.entero || '' : '' }}">
+      @if(flashMessages.has('errors.entero'))
+      <small class="form-text text-danger">
+        {{ flashMessages.get('errors.entero') }}
+      </small>
+      @endif
+    </div>
+
+    <div class="form-group">
+      <label>Numero decimal</label>
+      <input type="text" class="form-control" name="fraccionario"
+        value="{{ flashMessages.has('errors') ? flashMessages.get('fraccionario') : model? model.fraccionario || '' : '' }}">
+      @if(flashMessages.has('errors.fraccionario'))
+      <small class="form-text text-danger">
+        {{ flashMessages.get('errors.fraccionario') }}
+      </small>
+      @endif
+    </div>
+
+    <div class="form-group">
+      <label>Fecha</label>
+      <input type="text" class="form-control" name="fecha"
+        value="{{ flashMessages.has('errors') ? flashMessages.get('fecha') : model? date(model.fecha) || '' : ''}}">
+      @if(flashMessages.has('errors.fecha'))
+      <small class="form-text text-danger">
+        {{ flashMessages.get('errors.fecha') }}
+      </small>
+      @endif
+    </div>
+
+    @set('b_checked', flashMessages.has('logico')? 'checked' : (model && model.logico)? 'checked' : '' )
+    <div class="form-group">
+      <div class="custom-control custom-checkbox">
+        <input id="my-input" class="custom-control-input" type="checkbox" name="logico" value="true" {{b_checked}} >
+        <label for="my-input" class="custom-control-label">Logico</label>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a href="{{ route('thing.index') }}" class="btn btn-link">Cancelar</a>
+  </div>
+  <div class="col md-6">
+    {{ inspect(flashMessages) }}
+  </div>
+</div>

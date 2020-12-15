@@ -1,0 +1,40 @@
+@layout('layouts/main')
+
+@section('content')
+<h1>Things index</h1>
+
+<a class="btn btn-primary mb-3" href="{{ route('thing.create') }}">Nuevo</a>
+
+<table class="table table-bordered table-hover _table-light">
+  <thead class="thead-light">
+    <tr>
+      <th>#</th>
+      <th>boolean</th>
+      <th>date</th>
+      <th>decimal</th>
+      <th>integer</th>
+      <th>text</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    @each(thing in model)
+    <tr>
+      <td>{{ thing.id }}</td>
+      <td>{{ thing.logico ? 'Si': 'No'}}</td>
+      <td>{{ datetime(thing.fecha) }}</td>
+      <td>{{ thing.fraccionario || ''}}</td>
+      <td>{{ thing.entero || '' }}</td>
+      <td>
+        <b>{{ thing.cadena }}</b><br>
+        {{ thing.texto || ''}}
+        </td>
+      <td>
+        <a href="{{ route('thing.edit', { id: thing.id }) }}">Editar</a>
+      </td>
+    </tr>
+    @endeach
+  </tbody>
+</table>
+
+@endsection

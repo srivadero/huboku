@@ -1,0 +1,12 @@
+@layout('layouts/main')
+
+@section('content')
+<h1>Edit</h1>
+<form action="{{ route('thing.update', { params: {id: model.id }}) }}?_method=PUT" method="POST">
+  {{ csrfField() }}
+
+  @include('thing/_form')
+
+</form>
+
+@endsection

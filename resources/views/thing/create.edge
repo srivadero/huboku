@@ -1,0 +1,13 @@
+@layout('layouts/main')
+
+@section('content')
+<h1>Nuevo</h1>
+<form action="{{ route('thing.store') }}" method="POST">
+  {{ csrfField() }}
+
+  @include('thing/_form')
+
+</form>
+
+@endsection
+
